@@ -27,6 +27,7 @@ repositories { // 각종 의존성들을 어떤 원격 저장소에서 받을지
 dependencies { // 개발에 필요한 의존성들을 선언하는 곳
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('org.projectlombok:lombok')
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 }
