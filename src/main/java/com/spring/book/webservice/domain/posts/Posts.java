@@ -1,5 +1,6 @@
 package com.spring.book.webservice.domain.posts;
 
+import com.spring.book.webservice.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter // 롬복 어노테이션(모든 필드의 Getter 메소드를 자동 생성)
 @NoArgsConstructor // 롬복 어노테이션(기본 생성자 자동 추가)
 @Entity // JPA의 어노테이션(필수)
-public class Posts { // 실제 DB의 테이블과 매칭될 클래스
+public class Posts extends BaseTimeEntity { // 실제 DB의 테이블과 매칭될 클래스
     @Id // 해당 테이블의 PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // PK 생성 규칙
     private Long id; // Long 타입 추천
