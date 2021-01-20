@@ -10,4 +10,9 @@ public class IndexController { // 머스테치 스타터 덕분에 앞의 경로
     public String index() {
         return "index"; // src/main/resources/templates/index.mustache 로 전환되어 처리
     }
+
+    @GetMapping("/posts/save")
+    public String postsSave() {
+        return "posts-save";
+    }
 }
