@@ -27,6 +27,9 @@ public class OAuthAttributes {
 
     // of -> 사용자 정보가 Map이기 때문에 값 하나하나를 변환해야한다.
     public static OAuthAttributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
+        if("naver".equals(registrationId)) {
+            return ofNaver("id", attributes);
+        }
 
         return ofGoogle(userNameAttributeName, attributes);
     }
@@ -37,6 +40,19 @@ public class OAuthAttributes {
                 .email((String) attributes.get("email"))
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
+                .nameAttributekey(userNameAttributeName)
+                .build();
+    }
+
+    private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
+        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
+        // naver는 attributes의 response 안에 정보들이 담겨있다.(JSON 형태가 그럼)
+
+        return OAuthAttributes.builder()
+                .name((String) response.get("name"))
+                .email((String) response.get("email"))
+                .picture((String) response.get("profile_image"))
+                .attributes(response)
                 .nameAttributekey(userNameAttributeName)
                 .build();
     }
