@@ -6,13 +6,13 @@
             <div class="col-md-6">
                 <a href="/posts/save" role="button"
                    class="btn btn-primary">글 등록</a>
-                {{#userName}}
-                    Logged in as: <span id="'user">{{userName}}</span>
+                {{#IsuserName}}
+                    Logged in as: <span id="user">{{IsuserName}}</span>
                     <a href="/logout" class="btn btn-info active" role="button">Logout</a>
-                {{/userName}}
-                {{^userName}}
+                {{/IsuserName}}
+                {{^IsuserName}}
                     <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google login</a>
-                {{/userName}}
+                {{/IsuserName}}
             </div>
         </div>
         <br>
